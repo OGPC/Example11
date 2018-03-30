@@ -526,6 +526,7 @@ GameObject:
   - component: {fileID: 499891910}
   - component: {fileID: 499891909}
   - component: {fileID: 499891913}
+  - component: {fileID: 499891914}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -609,6 +610,18 @@ MonoBehaviour:
   follow: {fileID: 549005548}
   positionOffset: {x: 0, y: 85, z: -85}
   lerpRate: 5
+--- !u!114 &499891914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 499891908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 796e08a24ea1bd94b918641127b77d92, type: 2}
 --- !u!1001 &500475164
 Prefab:
   m_ObjectHideFlags: 0
@@ -1706,6 +1719,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114586682154503004, guid: d8d687e44ba667c449f7353de2f0bd8a,
+        type: 2}
+      propertyPath: maxTurnSpeed
+      value: 720
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d8d687e44ba667c449f7353de2f0bd8a, type: 2}
   m_IsPrefabParent: 0
@@ -1754,7 +1772,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570

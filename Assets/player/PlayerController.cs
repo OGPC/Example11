@@ -5,27 +5,44 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed = 5f;
+	public float moveSpeed = 10f;
 	public float jumpSpeed = 10f;
 	public float gravity = 20f;
+	public float maxTurnSpeed = 720f;
+
 	[HideInInspector]
 	public CharacterController cc;
-	private Vector3 moveDirection = Vector3.zero;
+
+	private Vector3 moveDelta = Vector3.zero;
+    private Quaternion animDirection = Quaternion.identity;
 
 	void Start () {
 		cc = GetComponent<CharacterController>();
 	}
-	
+
 	void Update () {
 		if (cc.isGrounded) {
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = moveDirection * moveSpeed;
-			transform.LookAt(transform.position + moveDirection, Vector3.up);
+			moveDelta = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			moveDelta = moveDelta * moveSpeed;
+
+
 			if (Input.GetButtonDown("Jump"))
-				moveDirection.y = jumpSpeed;
+				moveDelta.y = jumpSpeed;
 		}
 
-		moveDirection.y -= gravity * Time.deltaTime;
-		cc.Move(moveDirection * Time.deltaTime);
+		if (IgnoreVertical(moveDelta).sqrMagnitude != 0f) {
+				transform.rotation = Quaternion.RotateTowards(
+				transform.rotation,
+				Quaternion.LookRotation(IgnoreVertical(moveDelta), Vector3.up),
+				maxTurnSpeed * Time.deltaTime
+			);
+		}
+
+		moveDelta.y -= gravity * Time.deltaTime;
+		cc.Move(moveDelta * Time.deltaTime);
+	}
+
+	Vector3 IgnoreVertical (Vector3 input) {
+		return new Vector3(input.x, 0, input.z);
 	}
 }
