@@ -184,6 +184,7 @@ MonoBehaviour:
   moveSpeed: 10
   jumpSpeed: 10
   gravity: 20
+  maxTurnSpeed: 720
   cc: {fileID: 0}
 --- !u!136 &136635437934811294
 CapsuleCollider:
@@ -213,5 +214,5 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.01
   m_Center: {x: 0, y: 0, z: 0}

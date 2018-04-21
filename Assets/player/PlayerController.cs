@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour {
@@ -14,13 +12,12 @@ public class PlayerController : MonoBehaviour {
 	public CharacterController cc;
 
 	private Vector3 moveDelta = Vector3.zero;
-    private Quaternion animDirection = Quaternion.identity;
 
-	void Start () {
+	private void Start () {
 		cc = GetComponent<CharacterController>();
 	}
 
-	void Update () {
+	private void Update () {
 		if (cc.isGrounded) {
 			moveDelta = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			moveDelta = moveDelta * moveSpeed;
@@ -31,11 +28,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (IgnoreVertical(moveDelta).sqrMagnitude != 0f) {
-				transform.rotation = Quaternion.RotateTowards(
-				transform.rotation,
-				Quaternion.LookRotation(IgnoreVertical(moveDelta), Vector3.up),
-				maxTurnSpeed * Time.deltaTime
-			);
+			transform.rotation = Quaternion.RotateTowards(
+			transform.rotation,
+			Quaternion.LookRotation(IgnoreVertical(moveDelta), Vector3.up),
+			maxTurnSpeed * Time.deltaTime
+		);
 		}
 
 		moveDelta.y -= gravity * Time.deltaTime;

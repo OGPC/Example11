@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
@@ -8,15 +6,14 @@ public class CameraFollow : MonoBehaviour {
 	public Vector3 positionOffset;
 	public float lerpRate = 5f;
 
-	void Start () {
-		if (follow == null) {
+	private void Start () {
+		if (follow == null)
 			Debug.LogWarning("CameraFollow on " + gameObject.name + " has no follow assigned.");
-			return;
-		}
-		transform.position = follow.position + positionOffset;
+		else
+			transform.position = follow.position + positionOffset;
 	}
 	
-	void Update () {
+	private void Update () {
 		if (follow == null)
 			return;
 		transform.position = Vector3.Lerp(
