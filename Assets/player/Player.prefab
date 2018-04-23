@@ -23,10 +23,12 @@ GameObject:
   - component: {fileID: 136635437934811294}
   - component: {fileID: 23316520985257164}
   - component: {fileID: 143800122359380102}
+  - component: {fileID: 114473915092663710}
   - component: {fileID: 114586682154503004}
+  - component: {fileID: 114864394549422188}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,6 +172,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114473915092663710
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670201267160670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ca8227fbcb9a5419a04895fe6108d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactingNPC: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!114 &114586682154503004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +201,18 @@ MonoBehaviour:
   gravity: 20
   maxTurnSpeed: 720
   cc: {fileID: 0}
+--- !u!114 &114864394549422188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670201267160670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e99d1e7e58b79458704b376e54afac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
 --- !u!136 &136635437934811294
 CapsuleCollider:
   m_ObjectHideFlags: 1

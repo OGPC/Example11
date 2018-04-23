@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Dialog : MonoBehaviour {
 
 	public bool isComplete = false;
@@ -84,24 +85,15 @@ public class Dialog : MonoBehaviour {
 		moving = true;
 	}
 
+	public void Talk () {
+		if (targetMessage < messages.Length - 1)
+			ChangeMessage(targetMessage + 1);
+	}
+
 	// force means don't wait for player to arrive
 	public void Complete (bool force = false) {
 		ChangeMessage(messages.Length - 1);
 		if (force)
 			lastComplete = isComplete = true;
-	}
-
-	private void OnGUI () {
-		if (GUI.Button(new Rect(10, 10, 150, 20), "Set to first message"))
-			ChangeMessage(0);
-		if (GUI.Button(new Rect(10, 40, 150, 20), "Set to second message"))
-			ChangeMessage(1);
-		if (GUI.Button(new Rect(10, 70, 150, 20), "Set to final message"))
-			ChangeMessage(2);
-
-		if (GUI.Button(new Rect(10, 110, 150, 20), "Mark complete (soft)"))
-			Complete();
-		if (GUI.Button(new Rect(10, 140, 150, 20), "Mark complete (hard)"))
-			Complete(true);
 	}
 }
