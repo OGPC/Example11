@@ -7,6 +7,7 @@ public class NPCController : MonoBehaviour {
 
 	public string hasItem;
 	public string wantsItem;
+	public Collider door;
 
 	public bool tradeCompleted = false;
 
@@ -17,8 +18,13 @@ public class NPCController : MonoBehaviour {
 		dialog = GetComponentInParent<Dialog>();
 	}
 
-	public void Talk () {
-		dialog.Talk();
+	private void Update () {
+		if (door != null)
+			door.enabled = !tradeCompleted;
+	}
+
+	public bool Talk () {
+		return dialog.Talk();
 	}
 
 	public bool Trade (string givenItem) {

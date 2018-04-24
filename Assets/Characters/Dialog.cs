@@ -85,9 +85,12 @@ public class Dialog : MonoBehaviour {
 		moving = true;
 	}
 
-	public void Talk () {
-		if (targetMessage < messages.Length - 1)
+	public bool Talk () {
+		if (targetMessage < messages.Length - 2) {
 			ChangeMessage(targetMessage + 1);
+			return true;
+		}
+		return false;
 	}
 
 	// force means don't wait for player to arrive

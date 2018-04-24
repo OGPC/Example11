@@ -20,21 +20,23 @@ public class PlayerController : MonoBehaviour {
 
 			// is there an item to pick up?
 			if (foundItem != null) {
-				if (foundItem.Take())
-					inventory.AddItem(foundItem.item);
+				if (inventory.Empty() && foundItem.Take())
+					inventory.Give(foundItem.item);
 			}
 
 			// is there an NPC to interact with?
 			if (interactingNPC != null) {
-				// do we have what they want?
-				string toGive = interactingNPC.wantsItem;
-				if (inventory.HasItem(toGive) && interactingNPC.Trade(toGive)) {
-					inventory.RemoveItem(toGive);
-					inventory.AddItem(interactingNPC.hasItem);
-					// successfully traded
+				// first, talk until out of things to say.
+				if (!interactingNPC.Talk()) {
+					// do we have what they want?
+					string toGive = interactingNPC.wantsItem;
+					if (inventory.HasItem(toGive) && interactingNPC.Trade(toGive)) {
+						inventory.Take(toGive);
+						inventory.Give(interactingNPC.hasItem);
+						// successfully traded
+					}
+					// tried and failed to trade
 				}
-				// tried and failed to trade
-				interactingNPC.Talk();
 			}
 		}
 		// didn't try to trade
