@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: d1c6184ed5167024fbcf8e7045677834
-timeCreated: 1525507736
+guid: fefa02933376fbe42b714992735af92b
+timeCreated: 1526074005
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Circle
-    100004: Circle_001
     400000: //RootNode
-    400002: Circle
-    400004: Circle_001
-    2100000: unnamed
-    2300000: Circle
-    2300002: Circle_001
-    3300000: Circle
-    3300002: Circle_001
-    4300000: Circle_001
-    4300002: Circle
-    6400000: Circle
-    6400002: Circle_001
+    2100000: Shirt
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -52,9 +43,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 3
+    globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -93,7 +84,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
